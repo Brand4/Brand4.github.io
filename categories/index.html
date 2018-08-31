@@ -17,7 +17,7 @@
     <script type="text/javascript">
         // Data Center
         var DC = {
-            reward:	true,
+            reward:	false,
             lv: JSON.parse('{"enable":true,"app_id":"FMiOgEC3ji7OiFwqotqPIkYU-gzGzoHsz","app_key":"4pDtdfoOFgAoalFmTz1dt4Vq","icon":true}'),
             v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
             g: JSON.parse('{"enable":true,"lazy":true,"owner":"Brand4","repo":"Hello-world","oauth":{"client_id":"a628eeb29ba9a7de2101","client_secret":"31153328328f92b3894ed6c361f2c5f626929456"},"perPage":10}'),
@@ -34,7 +34,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -160,7 +160,7 @@
         
     </div>
 </header>
-<header class="content-header page-header">
+<header class="content-header categories-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
         <h1 class="title">Categories</h1>
@@ -170,6 +170,21 @@
         
     </div>
     
+<div class="tabs-bar container">
+    <nav class="tags-list">
+        <a href="/categories" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
+             active">全部</a>
+        
+            <a href="/categories/行程记录/" backup-style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">行程记录</a>
+            
+        
+    </nav>
+    <!-- PC show more-->
+    <div class="tags-list-more">
+        <a href="javascript:;" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
+    </div>
+</div>
+
 
 </header>
 
@@ -186,124 +201,45 @@
     <div id="local-search-result"></div>
 </div>
 
-
-<div class="container body-wrap">
-    <article class="page-article fade" itemprop="blogPage">
-        <div class="post-content page-content" id="page-content" itemprop="pageContent">
-            
-            
-        </div>
-        
-            <div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-        
-        
-        <div class="card page-about-me flex-row">
-            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/blog.jpg"></a>
-            <div class="content flex-col">
-                <p><strong>董学竹</strong></p>
-                <p><em>不仅仅分享知识</em></p>
-                <p></p>
-            </div>
-            <div class="page-share-wrap">
+<div class="container body-wrap fade">
     
+                    <h3 class="archive-separator" id="tag-行程记录">行程记录</h3>
+                    <div class="waterfall">
+                        
+                            <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2018-08-31 19:56:14" datetime="2018-08-31T11:56:14.000Z"  itemprop="datePublished">2018-08-31</time>
 
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
       
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/categories/&title=《Categories》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/categories/&title=《Categories》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/categories/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Categories》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/categories/&via=http://Brand4.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/categories/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-      
-    </ul>
- </div>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/行程记录/">行程记录</a></li></ul>
 
 
 
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-        </div>
-        
-        
-        <div class="card">   
-           
-
-
-      
-    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
-        <span>显示 Gitment 评论</span>
     </div>
-    <div id="gitment" class="hide"></div>
-
-
-
-        </div>
-        
-    </article>
     
-        <div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        我们一起来让这个世界有趣一点
-        <i class="icon icon-quote-right"></i>
+
+
+  
+    <h3 class="post-title " itemprop="name">
+      <a class="post-title-link" href="/2018/08/31/行程记录/">行程记录</a>
     </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
+  
 
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+                        
+                    </div>
+                
     
 </div>
 
