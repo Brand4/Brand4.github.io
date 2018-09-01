@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>如何轻松的导出照片的EXIF信息</title>
+      <link href="/2018/08/31/%E5%A6%82%E4%BD%95%E8%BD%BB%E6%9D%BE%E5%9C%B0%E5%AF%BC%E5%87%BA%E7%85%A7%E7%89%87%E7%9A%84EXIF%E4%BF%A1%E6%81%AF/"/>
+      <url>/2018/08/31/%E5%A6%82%E4%BD%95%E8%BD%BB%E6%9D%BE%E5%9C%B0%E5%AF%BC%E5%87%BA%E7%85%A7%E7%89%87%E7%9A%84EXIF%E4%BF%A1%E6%81%AF/</url>
+      <content type="html"><![CDATA[<p>要做行程记录，那第一步肯定是要得到照片的GPS，拍摄时间等信息。</p><p>想过自己写，但是实训时间比较短，而且这一块比较复杂，就打算找个轮子直接用了。</p><p>游遍百度没找到合适的，首先看到Exiv2库可以实现提取exif信息，但下了之后首先觉得太臃肿，其次各种环境都配好了，还是莫名地不能用。之后转战github，上面有很多轻量级的库，试了几个之后发现easyexif这个最好用，它不依赖第三方，且使用简单。<a href="https://github.com/mayanklahiri/easyexif" title="传送门" target="_blank" rel="noopener">传送门</a></p><p>C语言具体食用方法请参考github的demo。<br>qt里就把exif.h和exif.cpp加载到自己项目中，然后声明一个对象<code>easyexif::EXIFInfo result</code>，之后需要照片的什么信息就调用对象里的相应的成员。</p><p>完成到这里我们已经能实现提取exif信息了，但是还没有保存exif信息。easyexif里面有一个函数parseFrom，作用是将照片的信息保存在文件里。<br>这是函数的定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int parseFrom(const unsigned char *data, unsigned length);</span><br><span class="line">int parseFrom(const std::string &amp;data);</span><br></pre></td></tr></table></figure></p><p>这两个函数的作用是相同的，这里在qt中推荐使用第二个，因为在QFile中没有直接把参数转换为unsigned char*的函数，也不能强制转换，编译虽能通过，但是运行就报错。<br>qt中这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result.parseFrom(file.readAll().toStdString());//自己先用QFile声明file并将其打开</span><br></pre></td></tr></table></figure></p><p>这样就轻松地实现了将照片地EXIF信息导出并保存。<br>第一次写博客，如有错误或更好的方法，欢迎在评论区交流。</p>]]></content>
+      
+      <categories>
+          
+          <category> 行程记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> qt </tag>
+            
+            <tag> exif </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>行程记录</title>
       <link href="/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/"/>
       <url>/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
