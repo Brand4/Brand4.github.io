@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>qt与js交互，并在百度地图上绘制轨迹 | 欢迎来到Brand的个人博客 | 不仅仅分享知识</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="qt,百度地图API">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/css/style.css?v=1.3.2">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"FMiOgEC3ji7OiFwqotqPIkYU-gzGzoHsz","app_key":"4pDtdfoOFgAoalFmTz1dt4Vq","icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"Brand4","repo":"Hello-world","oauth":{"client_id":"a628eeb29ba9a7de2101","client_secret":"31153328328f92b3894ed6c361f2c5f626929456"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/blog.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">董学竹</h5>
+          <a href="mailto:1024598454@qq.com" title="1024598454@qq.com" class="mail">
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>2</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>9</span>
+            
+              <span>8</span>
+            
+              <span>4</span>
+            
+              <span>5</span>
+            
+              <span>4</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/Brand4" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>qt与js交互，并在百度地图上绘制轨迹</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">qt与js交互，并在百度地图上绘制轨迹</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-02T15:56:14.000Z" itemprop="datePublished" class="page-time">
+  2018-09-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/行程记录/">行程记录</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-qt与js交互，并在百度地图上绘制轨迹"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">qt与js交互，并在百度地图上绘制轨迹</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-02 23:56:14" datetime="2018-09-02T15:56:14.000Z"  itemprop="datePublished">2018-09-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/行程记录/">行程记录</a></li></ul>
+
+
+
+            
+	<span id="/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" class="leancloud_visitors" data-flag-title="qt与js交互，并在百度地图上绘制轨迹" title="qt与js交互，并在百度地图上绘制轨迹">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+
+
+<span class="post-comments-counter" id="/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p><strong>前言：</strong><br>获得了照片的GPS信息后，我们现在要做的就是把GPS信息传入JS中，然后通过百度地图API将轨迹绘制出来。</p>
+<p><strong>一：在程序页面加载地图</strong><br>qt5.6及之后取消了QWebkits,转为使用QWebEngine.</p>
+<p>在qt5.6的额ui设计师界面中，并不能直接找到QWebView，如果没有这个ui组件，我们就无法将浏览器嵌入到我们的程序中，就无法加载地图了，所以第一步我们要弄出一个类似的组件，在这里我使用了QWebEngineView。</p>
+<p>QWebEngineView使用widget组件，拖拉出来是一个透明的组件，对着组件按右键-&gt;promote to.. -&gt;选择QWebEngineView（没有的话手动输入QWebEngineView），如图所示。<br><figure class="image-box">
+                <a rel=qt与js交互，并在百度地图上绘制轨迹 href="https://img-blog.csdn.net/20180902224754129?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RYWjQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="swipebox" title=undefined><img src="https://img-blog.csdn.net/20180902224754129?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RYWjQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>这样我们便能通过ui组件来加载地图了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ui-&gt;widget-&gt;load(QUrl(&quot;qrc:/map/map.html&quot;));//也可以填本地html文件地址</span><br><span class="line">ui-&gt;widget-&gt;show();</span><br></pre></td></tr></table></figure>
+<p>这样就可以看到地图了。</p>
+<p><strong>二：将GPS信息传入JS</strong><br>在ui设计师界面拖一个button，然后转到槽，在mainwindow.cpp中这样写这个槽函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">void MainWindow::on_buttonDraw_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;stackedWidget-&gt;setCurrentIndex(0);</span><br><span class="line"></span><br><span class="line">    QJsonArray num_json, num2_json;//声明QJsonArray</span><br><span class="line">    QJsonDocument num_document, num2_document;  //将QJSonArray改为QJsonDocument类</span><br><span class="line">    QByteArray num_byteArray, num2_byteArray;</span><br><span class="line"></span><br><span class="line">    double num[50];</span><br><span class="line">    double num2[50];</span><br><span class="line">    for(int i =0;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        num[i] = result[i].GeoLocation.Longitude;//result为保存照片信息的对象，详情请参考上一篇博客</span><br><span class="line">        num2[i] = result[i].GeoLocation.Latitude;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(int i=0; i&lt;length; i++)//将数组传入num_json</span><br><span class="line">    &#123;</span><br><span class="line">        num_json.append(num[i]);</span><br><span class="line">        num2_json.append(num2[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    num_document.setArray(num_json);</span><br><span class="line">    num2_document.setArray(num2_json);</span><br><span class="line"></span><br><span class="line">    num_byteArray = num_document.toJson(QJsonDocument::Compact);</span><br><span class="line">    num2_byteArray = num2_document.toJson(QJsonDocument::Compact);</span><br><span class="line"></span><br><span class="line">    QString numJson(num_byteArray);//再转为QString</span><br><span class="line">    QString num2Json(num2_byteArray);</span><br><span class="line">    </span><br><span class="line">    QString cmd = QString(&quot;showarray(\&quot;%1\&quot;,\&quot;%2\&quot;,\&quot;%3\&quot;)&quot;).arg(numJson).arg(num2Json);</span><br><span class="line">    ui-&gt;widget-&gt;page()-&gt;runJavaScript(cmd);//传给javascript</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就不详细解释了，代码里有注释<br>html文件参考如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">	&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, user-scalable=no&quot; /&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">	body, html,#allmap &#123;width: 100%;height: 100%;overflow: hidden;margin:0;font-family:&quot;微软雅黑&quot;;&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=替换成你自己的AK	&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;title&gt;基于GPS的位置追踪及地理围栏&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id=&quot;allmap&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">////地图初始化</span><br><span class="line"></span><br><span class="line">var mapOptions=&#123;</span><br><span class="line"></span><br><span class="line">                minZoom: 3,					//最小级别</span><br><span class="line">                maxZoom:19,					//最大级别</span><br><span class="line">                mapType:  BMAP_NORMAL_MAP	//默认街道图</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">var map = new BMap.Map(&quot;allmap&quot;,mapOptions);    	// 创建Map实例 命名空间为BMAP</span><br><span class="line">map.centerAndZoom(new BMap.Point(114.0, 30.0), 5);  // 初始化地图,设置中心点坐标和地图级别</span><br><span class="line">map.setCurrentCity(&quot;武汉&quot;);          // 设置地图显示的城市</span><br><span class="line">map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function showhello()</span><br><span class="line">&#123;</span><br><span class="line">    //alert(&quot;Welcome, newbird &quot;);</span><br><span class="line">    var string= &quot;hello oldbird&quot;;</span><br><span class="line">    ReinforcePC.showinfo(string);//调用qt中的showinfo函数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showarray(numlist,num2list)					//仅把qt传来的数组转换成可用的list</span><br><span class="line">&#123;</span><br><span class="line">	//alert(numlist);</span><br><span class="line">	var num_list,num2_list;							//以下为格式转换，分割成可用的数组</span><br><span class="line">	num_list = numlist.substring(1,numlist.length-1);</span><br><span class="line">	num2_list = num2list.substring(1,num2list.length-1);</span><br><span class="line">	num_list = num_list.split(&quot;,&quot;);</span><br><span class="line">	num2_list = num2_list.split(&quot;,&quot;);</span><br><span class="line">	//alert(&quot;the num_list is: &quot;+num_list[0]+&quot; &quot;+num_list[1]);</span><br><span class="line"></span><br><span class="line">	var tracelist = [];		//为轨迹做准备，把所有的点扔里面，但不对每个点标注</span><br><span class="line">	for(i=0;i&lt;num_list.length;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		point= new BMap.Point(num_list[i],num2_list[i]);</span><br><span class="line">		tracelist.push(point);									//将每个点压入数组</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var polyline =new BMap.Polyline(tracelist, &#123;</span><br><span class="line">	enableEditing: false,//是否启用线编辑，默认为false</span><br><span class="line">	enableClicking: false,//是否响应点击事件，默认为true</span><br><span class="line">	strokeWeight:&apos;4&apos;,//折线的宽度，以像素为单位</span><br><span class="line">	strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1</span><br><span class="line">	strokeColor:&quot;red&quot; //折线颜色</span><br><span class="line">	&#125;);</span><br><span class="line">	map.addOverlay(polyline);          //增加折线</span><br><span class="line">	map.centerAndZoom(tracelist[num_list.length-1], 15);</span><br><span class="line"></span><br><span class="line">	//首尾加上标注点</span><br><span class="line">	var marker = new BMap.Marker(tracelist[0]); // 创建点</span><br><span class="line">	map.addOverlay(marker);                 // 加载标注</span><br><span class="line">	var marker = new BMap.Marker(tracelist[num_list.length-1]); // 创建点</span><br><span class="line">	map.addOverlay(marker);                 // 加载标注</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>这样我们便实现了把照片的在轨迹上绘制出来</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-09-02T15:37:32.949Z" itemprop="dateUpdated">2018-09-02 23:37:32</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" target="_blank" rel="external">http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/</a>
+        
+    </div>
+    <footer>
+        <a href="http://Brand4.github.io">
+            <img src="/img/blog.jpg" alt="董学竹">
+            董学竹
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/百度地图API/">百度地图API</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&title=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&title=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&via=http://Brand4.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2018/08/31/如何轻松地导出照片的EXIF信息/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">如何轻松的导出照片的EXIF信息</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.lujingtao.com" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                董学竹 &copy; 2018
+            </span>
+        		
+           	
+            
+            <!--
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            -->
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&title=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&title=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《qt与js交互，并在百度地图上绘制轨迹》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/&via=http://Brand4.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLElEQVR42u3aQW7bUAwEUN//0u62QFBlSH4XFvW0ClJV1vsGQnDI1yu+3n9dP3+f3J/835/3Xz/h+vcHLmxsbOybsN+XV85LjuZfT84/N7k/eStsbGzsfezrwvDLI1pF6/ppk2ONihw2Njb2g9kTUlJyJm+CjY2NjZ0Xhrw5ORUbXR8ZNjY2NvYkrEmuvLD1/vWDWRo2Njb217Pzqej3//yR+TY2Njb2F7NPlaV8xefUktCkuGJjY2NvYleLRG9MW60mk/FzIXLCxsbGXsfuxUnVxZ385aqYYw0JNjY29q3YSeCex0zHmoRimFVdGMLGxsbexM7LTz58TfB5qes1MNX2BhsbG/vu7PxskvYjX6yZhE29VgcbGxt7HzunVseueVORDBV6rVEhVMLGxsa+OTv/4OoB5Q3JqS8mOj5sbGzsRezkpSdD1lNxUj5OKK8NYWNjY9+cnbcE1cgpLzPVl56MLrCxsbGfwC5MFf7LSk0+xC0UPGxsbOxF7OTRk0Wc3tC3WlbzpggbGxt7Kzt/XFIw8sajOiSejAEKZQwbGxv7VuzmH/1isTlV3pJRcXQ02NjY2IvY+UigOh44FVr1oqXqEAIbGxv77uy8GZg3FZPS+PGihY2Njb2CXT2IPE5qrtcEhbAXYGFjY2NvYldLQnWx5tW68nJVbZmwsbGxn8ZO4vhezJQEQ9UwqzpsxsbGxr47u7DRM2geJoF+9cuIjgAbGxt7Ebv3V70XAOUH11vBTO7HxsbG3seeAPI2oxdj9VYzo5+xsbGxl7LztcjksHprQL0mJz/EqKBjY2Nj34pdLR7zEpKv1FTXdMorQdjY2Ngr2ElgdCoAOgU7sEKEjY2NvYh9anBb2AwqhkrV9qYwVMDGxsZewX4XryQY6rUlvU9PvoZCloaNjY19Q3Z+TY4gX+Xp3X8q2MLGxsa+LzsPgKplJo+HkqioHBtdHyU2Njb2OnZeGPJgaBLiT+Kq6DiwsbGxH8merNHkA4B5tBS9PzY2NvYj2WdHsPOwaRR1YWNjY69jn20GkoHu5JiSxuZwloaNjY39xewqY3I01RFCElFVPxEbGxt7EfsPaDKglCMsS04AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.3.2"></script>
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":70,"height":140},"mobile":{"show":true,"scale":0.2},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
