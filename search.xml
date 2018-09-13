@@ -26,27 +26,6 @@
     </entry>
     
     <entry>
-      <title>行程记录</title>
-      <link href="/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/"/>
-      <url>/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
-      <content type="html"><![CDATA[<p>本人比较喜欢旅行，旅行后怎么少的了记录和分享呢？</p><p>手机端有很多记录旅行的软件，其中我最喜欢面包旅行这一款APP。</p><p>但在PC端我却找不到类似软件，没有的话，身为软件人，为什么不自己写一款呢？</p><p>于是我实训选了行程记录这个项目，已开发了1.0版本，现在写相关博客来记录开发时遇到的坑及解决办法。</p><p>开发环境：qt5.6.3。附上项目部分截图：<br><figure class="image-box">                <img src="/images/first.PNG" alt="开始旅行" title="" class="">                <p>开始旅行</p>            </figure><br><figure class="image-box">                <img src="/images/second.PNG" alt="导入图片&添加游记" title="" class="">                <p>导入图片&添加游记</p>            </figure><br><figure class="image-box">                <img src="/images/third.PNG" alt="绘制旅行轨迹" title="" class="">                <p>绘制旅行轨迹</p>            </figure></p>]]></content>
-      
-      <categories>
-          
-          <category> 行程记录 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> qt </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>如何轻松的导出照片的EXIF信息</title>
       <link href="/2018/08/31/%E5%A6%82%E4%BD%95%E8%BD%BB%E6%9D%BE%E5%9C%B0%E5%AF%BC%E5%87%BA%E7%85%A7%E7%89%87%E7%9A%84EXIF%E4%BF%A1%E6%81%AF/"/>
       <url>/2018/08/31/%E5%A6%82%E4%BD%95%E8%BD%BB%E6%9D%BE%E5%9C%B0%E5%AF%BC%E5%87%BA%E7%85%A7%E7%89%87%E7%9A%84EXIF%E4%BF%A1%E6%81%AF/</url>
@@ -64,6 +43,27 @@
             <tag> qt </tag>
             
             <tag> exif </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>行程记录</title>
+      <link href="/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/"/>
+      <url>/2018/08/31/%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<p>本人比较喜欢旅行，旅行后怎么少的了记录和分享呢？</p><p>手机端有很多记录旅行的软件，其中我最喜欢面包旅行这一款APP。</p><p>但在PC端我却找不到类似软件，没有的话，身为软件人，为什么不自己写一款呢？</p><p>于是我实训选了行程记录这个项目，已开发了1.0版本，现在写相关博客来记录开发时遇到的坑及解决办法。</p><p>开发环境：qt5.6.3。附上项目部分截图：<br><figure class="image-box">                <img src="/images/first.PNG" alt="开始旅行" title="" class="">                <p>开始旅行</p>            </figure><br><figure class="image-box">                <img src="/images/second.PNG" alt="导入图片&添加游记" title="" class="">                <p>导入图片&添加游记</p>            </figure><br><figure class="image-box">                <img src="/images/third.PNG" alt="绘制旅行轨迹" title="" class="">                <p>绘制旅行轨迹</p>            </figure></p>]]></content>
+      
+      <categories>
+          
+          <category> 行程记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> qt </tag>
             
         </tags>
       
