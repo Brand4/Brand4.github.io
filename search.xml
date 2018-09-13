@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>将照片按照拍摄时间排序</title>
+      <link href="/2018/09/06/%E5%B0%86%E7%85%A7%E7%89%87%E6%8C%89%E7%85%A7%E6%8B%8D%E6%91%84%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F/"/>
+      <url>/2018/09/06/%E5%B0%86%E7%85%A7%E7%89%87%E6%8C%89%E7%85%A7%E6%8B%8D%E6%91%84%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F/</url>
+      <content type="html"><![CDATA[<p>上一篇博客里已经实现了轨迹的绘制，但是这时的轨迹并不是按照你的旅游顺序来绘制的，这就需要我们先将照片按照拍摄时间排序。</p><p>我先声明了一个结构体，包括拍摄时间，拍摄时间与当前时间的差值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct image</span><br><span class="line">&#123;</span><br><span class="line">    easyexif::EXIFInfo result;</span><br><span class="line"></span><br><span class="line">    QDateTime time;</span><br><span class="line">    int difference;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">image ab[20];</span><br></pre></td></tr></table></figure></p><p>然后写了一个排序的算法，思路为获取每一张照片的拍摄时间与当前时间的差值，然后用冒泡排序比较差值后排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//将GPS信息按照时间先后顺序排序</span><br><span class="line">void MainWindow::arrangeGPS()</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0;i &lt;len;i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        //获取各图片的拍摄时间</span><br><span class="line">        ab[i].time = QDateTime::fromString(QString::fromStdString(ab[i].result.DateTime),</span><br><span class="line">                         &quot;yyyy:MM:dd hh:mm:ss&quot;);</span><br><span class="line">        //获取当前时间</span><br><span class="line">        QDateTime now = QDateTime::currentDateTime();</span><br><span class="line"></span><br><span class="line">        //比较各图片与现在时间的差值，精确到秒</span><br><span class="line">        ab[i].difference = ab[i].time.secsTo(now);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; len - i - 1; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (ab[j].difference &lt; ab[j+1].difference)</span><br><span class="line">            &#123;</span><br><span class="line">                image temp[50];</span><br><span class="line">                temp[j] = ab[j];</span><br><span class="line">                ab[j] = ab[j + 1];</span><br><span class="line">                ab[j + 1] = temp[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这里有一个容易犯错的地方，我当时比较差值后，交换的是结构体里的time，导致无法正常排序。<br>以后如果遇到类似排序，应该交换的是整个结构体，才能正确排序。</p>]]></content>
+      
+      <categories>
+          
+          <category> 行程记录 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> qt </tag>
+            
+            <tag> exif </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>qt与js交互，并在百度地图上绘制轨迹</title>
       <link href="/2018/09/02/qt%E4%B8%8Ejs%E4%BA%A4%E4%BA%92%EF%BC%8C%E5%B9%B6%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E4%B8%8A%E7%BB%98%E5%88%B6%E8%BD%A8%E8%BF%B9/"/>
       <url>/2018/09/02/qt%E4%B8%8Ejs%E4%BA%A4%E4%BA%92%EF%BC%8C%E5%B9%B6%E5%9C%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E4%B8%8A%E7%BB%98%E5%88%B6%E8%BD%A8%E8%BF%B9/</url>

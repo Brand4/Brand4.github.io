@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>行程记录 | 欢迎来到Brand的个人博客 | 不仅仅分享知识</title>
+    <title>将照片按照拍摄时间排序 | 欢迎来到Brand的个人博客 | 不仅仅分享知识</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="qt">
+    <meta name="keywords" content="qt,exif">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/third-party/swipebox.min.css?v=1.3.2">
     <link rel="stylesheet" href="/css/style.css?v=1.3.2">
@@ -150,7 +150,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>行程记录</span>
+            <span>将照片按照拍摄时间排序</span>
             
         </div>
         
@@ -163,11 +163,11 @@
 <header class="content-header post-header">
     <img src="/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">行程记录</h1>
+        <h1 class="title">将照片按照拍摄时间排序</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-31T11:56:14.000Z" itemprop="datePublished" class="page-time">
-  2018-08-31
+                <time datetime="2018-09-06T12:56:09.000Z" itemprop="datePublished" class="page-time">
+  2018-09-06
 </time>
 
 
@@ -196,12 +196,12 @@
 
 
 <div class="container body-wrap">
-    <article id="post-行程记录"
+    <article id="post-将照片按照拍摄时间排序"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">行程记录</h1>
+        <h1 class="post-card-title">将照片按照拍摄时间排序</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-08-31 19:56:14" datetime="2018-08-31T11:56:14.000Z"  itemprop="datePublished">2018-08-31</time>
+            <time class="post-time" title="2018-09-06 20:56:09" datetime="2018-09-06T12:56:09.000Z"  itemprop="datePublished">2018-09-06</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/行程记录/">行程记录</a></li></ul>
@@ -209,7 +209,7 @@
 
 
             
-	<span id="/2018/08/31/行程记录/" class="leancloud_visitors" data-flag-title="行程记录" title="行程记录">
+	<span id="/2018/09/06/将照片按照拍摄时间排序/" class="leancloud_visitors" data-flag-title="将照片按照拍摄时间排序" title="将照片按照拍摄时间排序">
 		
 			<i class="icon icon-eye"></i>
 		
@@ -220,12 +220,12 @@
             
 
 
-<span class="post-comments-counter" id="/2018/08/31/行程记录/">
+<span class="post-comments-counter" id="/2018/09/06/将照片按照拍摄时间排序/">
     <span class="post-meta-item-icon">
         <i class="icon icon-comment-o"></i>
     </span>
     
-    <a href="/2018/08/31/行程记录/#gitment-display-button" onclick="ShowGitment()">
+    <a href="/2018/09/06/将照片按照拍摄时间排序/#gitment-display-button" onclick="ShowGitment()">
         <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
     </a>
 </span>
@@ -234,20 +234,10 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            <p>本人比较喜欢旅行，旅行后怎么少的了记录和分享呢？</p>
-<p>手机端有很多记录旅行的软件，其中我最喜欢面包旅行这一款APP。</p>
-<p>但在PC端我却找不到类似软件，没有的话，身为软件人，为什么不自己写一款呢？</p>
-<p>于是我实训选了行程记录这个项目，已开发了1.0版本，现在写相关博客来记录开发时遇到的坑及解决办法。</p>
-<p>开发环境：qt5.6.3。附上项目部分截图：<br><figure class="image-box">
-                <a rel=行程记录 href="/images/first.PNG" class="swipebox" title=undefined><img src="/images/first.PNG" alt="开始旅行" title="" class=""></a>
-                <p>开始旅行</p>
-            </figure><br><figure class="image-box">
-                <a rel=行程记录 href="/images/second.PNG" class="swipebox" title=undefined><img src="/images/second.PNG" alt="导入图片&添加游记" title="" class=""></a>
-                <p>导入图片&添加游记</p>
-            </figure><br><figure class="image-box">
-                <a rel=行程记录 href="/images/third.PNG" class="swipebox" title=undefined><img src="/images/third.PNG" alt="绘制旅行轨迹" title="" class=""></a>
-                <p>绘制旅行轨迹</p>
-            </figure></p>
+            <p>上一篇博客里已经实现了轨迹的绘制，但是这时的轨迹并不是按照你的旅游顺序来绘制的，这就需要我们先将照片按照拍摄时间排序。</p>
+<p>我先声明了一个结构体，包括拍摄时间，拍摄时间与当前时间的差值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct image</span><br><span class="line">&#123;</span><br><span class="line">    easyexif::EXIFInfo result;</span><br><span class="line"></span><br><span class="line">    QDateTime time;</span><br><span class="line">    int difference;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">image ab[20];</span><br></pre></td></tr></table></figure></p>
+<p>然后写了一个排序的算法，思路为获取每一张照片的拍摄时间与当前时间的差值，然后用冒泡排序比较差值后排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//将GPS信息按照时间先后顺序排序</span><br><span class="line">void MainWindow::arrangeGPS()</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0;i &lt;len;i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        //获取各图片的拍摄时间</span><br><span class="line">        ab[i].time = QDateTime::fromString(QString::fromStdString(ab[i].result.DateTime),</span><br><span class="line">                         &quot;yyyy:MM:dd hh:mm:ss&quot;);</span><br><span class="line">        //获取当前时间</span><br><span class="line">        QDateTime now = QDateTime::currentDateTime();</span><br><span class="line"></span><br><span class="line">        //比较各图片与现在时间的差值，精确到秒</span><br><span class="line">        ab[i].difference = ab[i].time.secsTo(now);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; len - i - 1; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (ab[j].difference &lt; ab[j+1].difference)</span><br><span class="line">            &#123;</span><br><span class="line">                image temp[50];</span><br><span class="line">                temp[j] = ab[j];</span><br><span class="line">                ab[j] = ab[j + 1];</span><br><span class="line">                ab[j + 1] = temp[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里有一个容易犯错的地方，我当时比较差值后，交换的是结构体里的time，导致无法正常排序。<br>以后如果遇到类似排序，应该交换的是整个结构体，才能正确排序。</p>
 
         </div>
         
@@ -255,12 +245,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-09-13T13:29:27.710Z" itemprop="dateUpdated">2018-09-13 21:29:27</time>
+    Last updated: <time datetime="2018-09-13T14:17:33.987Z" itemprop="dateUpdated">2018-09-13 22:17:33</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2018/08/31/行程记录/" target="_blank" rel="external">http://Brand4.github.io/2018/08/31/行程记录/</a>
+        转载注明出处，原文地址：<a href="/2018/09/06/将照片按照拍摄时间排序/" target="_blank" rel="external">http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/</a>
         
     </div>
     <footer>
@@ -280,7 +270,7 @@
         
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exif/">exif</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/">qt</a></li></ul>
 
             <div class="page-share-wrap">
     
@@ -289,7 +279,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/08/31/行程记录/&title=《行程记录》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&title=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -301,25 +291,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/08/31/行程记录/&title=《行程记录》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&title=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/08/31/行程记录/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《行程记录》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/08/31/行程记录/&via=http://Brand4.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&via=http://Brand4.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/08/31/行程记录/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -350,21 +340,14 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="prev">
-      <a href="/2018/08/31/如何轻松地导出照片的EXIF信息/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">如何轻松的导出照片的EXIF信息</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="next">
-      <a href="/2018/08/30/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2018/09/02/qt与js交互，并在百度地图上绘制轨迹/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">qt与js交互，并在百度地图上绘制轨迹</h4>
       </a>
     </div>
   
@@ -466,7 +449,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/08/31/行程记录/&title=《行程记录》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&title=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&pic=http://Brand4.github.io/img/blog.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -478,25 +461,25 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/08/31/行程记录/&title=《行程记录》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&title=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&source=有空更新一些知识或分享一些趣事" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/08/31/行程记录/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《行程记录》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/08/31/行程记录/&via=http://Brand4.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《将照片按照拍摄时间排序》 — 欢迎来到Brand的个人博客&url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/&via=http://Brand4.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/08/31/行程记录/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Brand4.github.io/2018/09/06/将照片按照拍摄时间排序/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -508,7 +491,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS44CMQwFQO5/aeYAiJ73HEDqpLJCfEKqF5Zj+/GI1/NlvX76+jrZ7d2nj28sDAyM2zKel+vdH8+Oe73P9fevHyUGBsYJjOvAd81LfnVNbR8WBgYGRn6gNr3LwysGBgbGesBNLqLtdRQDAwPjmpFcYvMCXHuV/eldHAMD44aMPBT+/vVX+hsYGBi3YjxHq21wts3L+jwYGBhbM/Kr4zfakG0IxsDAOJOxEhyTclh+lNn3ozkyDAyMjRgrY16zZLG9xL49IQYGxjGM/J31cYo2EfznAWFgYGzNyAFtAJ01FdqUsQ6+GBgYt2XMCm0rwxNJM6BNRjEwMHZl5KW0JF1LDjprJPzziDEwMI5kzIpln0of24QVAwPjNEYbUosMtGw/FP+FgYGxNSMJbbML6nrCN2sbYGBg7MpYb0a2hbNZiW1YdMPAwNiCsV7cz3fI90/AGBgY5zDardtGQrJDO5CBgYFxDiM/XF4ma4cz6obl7IgYGBi3ZeQDE7P5q9noRhvKMTAw9mbkJbN2FOxTwToKtRgYGFsz2gGLaLsPFe+u9yyushgYGDdnPMuVJ3azIDtrJGBgYOzNyFdSFMt5+SDFetKJgYGxB2NWpk/Ca/5+/jjengoDA+MARl6ObwPiSoAu2g8YGBgY5QhFG16TvLVuZGJgYBzJmBX0Zxfj+nKLgYFxACNvBrSDGrNWZT4UgoGBcQJjdnXMR8fWi2tL42IYGBj3ZvwBteIi4KksEfsAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACq0lEQVR42u3cQW4jMQwEwPz/015gr0Em3aTk9QI1JyOJRywdJIIk8vUVP6+/z08/ef3w5G/7/tvv73n+1urBw8PDG4X+HOLz54T3/PN2i/N18fDw8O7xktc9B5qHtTnV85jx8PDwPoGXBJck1rMV8fDw8P5HXg7YXBhtWo+Hh4f3r3hJMaItUjxfG8m38ngO1Frw8PDwYt7+EH//54v9PTw8PLxFV33/tK2vpIRRrI6Hh4d3gTdraOUpcls4SDaiHsbCw8PDezuvPogfg2hLsbPxheJiwMPDw1vwzhYCZgn3Zvui/h4eHh7eId6s1ZSwN0G310ORWOPh4eEteJtroB0OaBPitiQxTKbx8PDwJl2nA6NXeTn41MbllwoeHh7eWd6wMBoPZiWNsTxZzxt1eHh4ePd4s4uhLea2hY9N6wsPDw/vPbyk1psfx+0bEuSqrIyHh4d3gXeq8d8ibyT0w14fHh4eXsx7T9D7a2PWJMPDw8O7wctLsTl4Nrw1K2fUQw94eHh4a167WJvm7gu4bQxRSo2Hh4e35rWt+rMt//1Q1y8XAx4eHt41Xh5K2+zPa8lJIaNYHQ8PD+8yLy8i5Elt/p5N16649/Dw8PCO8mZp9Cbctrybb1l97+Hh4eF1ueixf0qyGRpoN7QYccDDw8O7wJsh89bUrFW2v0jw8PDw7vGGR205ENC23NpIfowQDw8P7xovB8xO4DxR3g914eHh4d3jvcqnTXzzPlQOrgsQeHh4eEd5m/tkVvzdlyFmyToeHh7eWV7b3NqUd5MtSxppSQEFDw8P7zavbWK1rf38XjpWZcHDw8P7GN7m79tjfTaqhYeHh/c5vFmTLAklZ9TbgYeHh3eN1w48nT3cN8MEv2w9Hh4e3gXevgG2L1u0a50d1cLDw8OLeX8A77OHXLDAFskAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
